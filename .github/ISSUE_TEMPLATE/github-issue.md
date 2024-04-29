@@ -11,6 +11,7 @@ template_path=.github/ISSUE_TEMPLATE/bug_report.md
 
   * Unity version: _____
   * Google Mobile Ads Unity plugin version: _____
+  * Did you install the plugin using the Unity package manager : _____
   * Platform: _____ (iOS, Android, Unity Editor)
   * Platform OS version: _____ (eg iOS 10, Android 9)
   * Any specific devices issue occurs on: _____
