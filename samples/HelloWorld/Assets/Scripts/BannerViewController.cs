@@ -1,7 +1,6 @@
+using GoogleMobileAds.Api;
 using System;
 using UnityEngine;
-using GoogleMobileAds.Api;
-
 namespace GoogleMobileAds.Sample
 {
     /// <summary>
@@ -16,13 +15,8 @@ namespace GoogleMobileAds.Sample
         public GameObject AdLoadedStatus;
 
         // These ad units are configured to always serve test ads.
-#if UNITY_ANDROID
+
         private const string _adUnitId = "ca-app-pub-3940256099942544/6300978111";
-#elif UNITY_IPHONE
-        private const string _adUnitId = "ca-app-pub-3940256099942544/2934735716";
-#else
-        private const string _adUnitId = "unused";
-#endif
 
         private BannerView _bannerView;
 
@@ -34,13 +28,13 @@ namespace GoogleMobileAds.Sample
             Debug.Log("Creating banner view.");
 
             // If we already have a banner, destroy the old one.
-            if(_bannerView != null)
+            if (_bannerView != null)
             {
                 DestroyAd();
             }
 
             // Create a 320x50 banner at top of the screen.
-            _bannerView = new BannerView(_adUnitId, AdSize.Banner, AdPosition.Top);
+            _bannerView = new BannerView(_adUnitId, AdSize.Banner, AdPosition.Bottom);
 
             // Listen to events the banner may raise.
             ListenToAdEvents();
@@ -54,7 +48,7 @@ namespace GoogleMobileAds.Sample
         public void LoadAd()
         {
             // Create an instance of a banner view first.
-            if(_bannerView == null)
+            if (_bannerView == null)
             {
                 CreateBannerView();
             }
